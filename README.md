@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+🤝 KidShare Hub
+A Community Sharing & Exchange Platform for Students Aged 7–25
+A full-stack community marketplace built for school and college campuses — enabling students to list, request, exchange items, and book turf slots in a safe, trust-verified environment.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🏛️ Project Vision
+Aligned with the growing need for sustainable peer-to-peer sharing in educational institutions, KidShare Hub serves as a digital bridge between students who have resources and those who need them. The platform promotes a circular economy mindset — reducing waste, encouraging collaboration, and building community trust through technology.
+Built as part of a campus innovation prototype, KidShare Hub demonstrates how modern web technologies can solve real student problems: from finding an affordable textbook to booking a football turf slot — all within a verified, safe ecosystem.
 
-## Available Scripts
+🚀 Key Features
+1. 🔐 Authentication & Roles
+Signup with name, age (7–25), email, password, and role selection
+Firebase Authentication with Firestore profile storage
+Role-based access control: Student and Admin
+Admin banner and elevated privileges for moderation
 
-In the project directory, you can run:
+2. 🏪 Community Dashboard
+Real-time item feed powered by Firestore onSnapshot listeners
+Category filters: Books, Games, Sports
+Live item status badges: Available, Pending, Completed
+Admin can delete any listing; owners can manage their own
 
-### `npm start`
+3. ➕ Item Listing System
+List items with name, category, condition, type, and optional image
+Listing types: Sell / Rent / Exchange / Free
+Status auto-set to Available on creation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. 🤝 Request & Exchange System
+Students can request any available item
+Owner receives the request and can Accept or Reject
+Full status lifecycle: Pending → Accepted → Completed
+Dual confirmation required before marking an exchange complete
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. 🛡️ Safety & Trust System
+Safe Zones — Admin-approved campus meetup locations (Library, Canteen, etc.)
+Meeting Code — Auto-generated 6-digit OTP verified at the meetup
+Dual Confirmation — Both parties must confirm before completion
+Report System — Flag issues like no-show, payment disputes, unsafe behaviour
+Trust Badges — 🆕 New Member / ⚠️ Low Trust / ✅ Trusted based on rating history
 
-### `npm test`
+6. 🏟️ Turf Booking System
+3 admin-managed turfs: Turf A, Turf B, Turf C
+Fixed time slots: 3:00 PM – 6:00 PM (hourly)
+Real-time slot availability — booked slots marked 🔴 and locked
+Purpose of booking required for accountability
+Admin dashboard to view and cancel all bookings
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+7. ⭐ Rating & Reputation System
+Rate users (1–5 stars) after every completed exchange
+Ratings stored in Firestore and averaged on profile
+Trust badges dynamically calculated from rating history
+Displayed prominently on the My Activity profile card
 
-### `npm run build`
+8. 🛡️ Admin Control Panel
+Delete any listing from the dashboard
+View and cancel all turf bookings
+Review flagged reports from students
+Admin identity shown across the app with a persistent banner
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📦 Installation & Setup
+1. Clone the Repository
+bashgit clone https://github.com/your-username/kidshare-hub.git
+cd kidshare-hub
+2. Install Dependencies
+npm install
+3. Configure Environment Variables
+Copy the example env file and fill in your Firebase credentials:
+bashcp .env.example .env
+Edit .env with your actual Firebase project values:
+envREACT_APP_FIREBASE_API_KEY=your_api_key_here
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
+4. Start Development Server
+npm start
+App runs at http://localhost:3000
+5. Production Build
+npm run build
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🔥 Firebase Setup
+Go to https://console.firebase.google.com
+Create a new project → Register a Web App → copy firebaseConfig
+Enable Authentication → Email/Password
+Create Firestore Database in test mode
+Paste credentials into your .env file
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🔮 Future Improvements
+FeatureDescription💬 In-app ChatReal-time messaging between requester and owner📱 React Native AppMobile version reusing the same Firebase backend💳 Payment EscrowRazorpay integration — funds held until both parties confirm🔔 Push NotificationsAlerts on request acceptance and slot availability🔍 Search BarSearch listings by keyword or item name📊 Admin AnalyticsDashboard showing users, bookings, reports, and trends🪪 Phone VerificationOTP at signup for stronger identity verification🗺️ Google MapsVisual map showing safe meetup zones on campus
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+💡 "Share more. Waste less. Trust the process."
